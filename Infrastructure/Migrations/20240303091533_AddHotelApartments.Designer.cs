@@ -2,6 +2,7 @@
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240303091533_AddHotelApartments")]
+    partial class AddHotelApartments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
@@ -44,30 +47,6 @@ namespace Infrastructure.Migrations
                     b.HasIndex("FloorId");
 
                     b.ToTable("tblApartments");
-                });
-
-            modelBuilder.Entity("Domain.Entities.ApartmentImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ApartmentId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("TEXT");
-
-                    b.Property<short>("Priority")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApartmentId");
-
-                    b.ToTable("tblApartmentImage");
                 });
 
             modelBuilder.Entity("Domain.Entities.FloorEntity", b =>
@@ -127,17 +106,6 @@ namespace Infrastructure.Migrations
                     b.Navigation("Floor");
                 });
 
-            modelBuilder.Entity("Domain.Entities.ApartmentImage", b =>
-                {
-                    b.HasOne("Domain.Entities.ApartmentEntity", "Apartment")
-                        .WithMany("ApartmentImages")
-                        .HasForeignKey("ApartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Apartment");
-                });
-
             modelBuilder.Entity("Domain.Entities.FloorEntity", b =>
                 {
                     b.HasOne("Domain.Entities.HotelEntity", "Hotel")
@@ -147,11 +115,6 @@ namespace Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Hotel");
-                });
-
-            modelBuilder.Entity("Domain.Entities.ApartmentEntity", b =>
-                {
-                    b.Navigation("ApartmentImages");
                 });
 
             modelBuilder.Entity("Domain.Entities.FloorEntity", b =>

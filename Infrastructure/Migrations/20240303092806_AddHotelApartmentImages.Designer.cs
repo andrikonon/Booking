@@ -2,6 +2,7 @@
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240303092806_AddHotelApartmentImages")]
+    partial class AddHotelApartmentImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
@@ -130,7 +133,7 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.ApartmentImage", b =>
                 {
                     b.HasOne("Domain.Entities.ApartmentEntity", "Apartment")
-                        .WithMany("ApartmentImages")
+                        .WithMany()
                         .HasForeignKey("ApartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -147,11 +150,6 @@ namespace Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Hotel");
-                });
-
-            modelBuilder.Entity("Domain.Entities.ApartmentEntity", b =>
-                {
-                    b.Navigation("ApartmentImages");
                 });
 
             modelBuilder.Entity("Domain.Entities.FloorEntity", b =>

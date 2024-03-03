@@ -6,7 +6,9 @@ namespace Infrastructure.Data;
 public class ApplicationDbContext : DbContext
 {
     public DbSet<HotelEntity> Hotels { get; set; }
-    public DbSet<FloorEntity> HotelFloors { get; set; }
+    public DbSet<FloorEntity> Floors { get; set; }
+    public DbSet<ApartmentEntity> Apartments { get; set; }
+    public DbSet<ApartmentImage> ApartmentImages { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

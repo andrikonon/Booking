@@ -98,7 +98,7 @@ public partial class HotelMainForm : Form
 
     private List<FloorEntity> GetFloors(int hotelId)
     {
-        var list = context.HotelFloors.Where(x => x.HotelId == hotelId).ToList();
+        var list = context.Floors.Where(x => x.HotelId == hotelId).ToList();
         return list;
     }
 
@@ -107,7 +107,7 @@ public partial class HotelMainForm : Form
         lvFloors.Items.Clear();
         using (ApplicationDbContext context = new ApplicationDbContext())
         {
-            var floors = context.HotelFloors.Where(x => x.HotelId == hotelId).ToList();
+            var floors = context.Floors.Where(x => x.HotelId == hotelId).ToList();
             foreach (var floor in floors)
             {
                 ListViewItem lvFloorsItem = new ListViewItem();

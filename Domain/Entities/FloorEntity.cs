@@ -16,4 +16,5 @@ public class FloorEntity
     [ForeignKey("Hotel")]
     public int HotelId { get; set; }
     public virtual HotelEntity Hotel { get; set; }
+    public virtual ICollection<ApartmentEntity> Apartments { get; set; }
 }

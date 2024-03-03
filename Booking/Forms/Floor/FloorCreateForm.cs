@@ -26,7 +26,7 @@ public partial class FloorCreateForm : Form
             Name = txtName.Text,
             HotelId = hotel.Id,
         };
-        context.HotelFloors.Add(floor);
+        context.Floors.Add(floor);
         context.SaveChanges();
         this.Close();
         this.DialogResult = DialogResult.OK;
