@@ -93,6 +93,7 @@ partial class HotelMainForm
         lvFloors.TabIndex = 5;
         lvFloors.UseCompatibleStateImageBehavior = false;
         lvFloors.View = View.List;
+        lvFloors.MouseDoubleClick += lvFloors_MouseDoubleClick;
         
         
         btnAddFloor.Location = new Point(800, 60);

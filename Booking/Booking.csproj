@@ -10,6 +10,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Domain\Domain.csproj" />
+      <ProjectReference Include="..\Helpers\Helpers.csproj" />
       <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
     </ItemGroup>
 
@@ -24,6 +25,12 @@
         <SubType>Form</SubType>
       </Compile>
       <Compile Update="Forms\Floor\FloorCreateForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Forms\Apartment\ApartmentListForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Forms\Apartment\ApartmentCreateForm.cs">
         <SubType>Form</SubType>
       </Compile>
     </ItemGroup>

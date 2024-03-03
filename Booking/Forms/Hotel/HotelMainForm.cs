@@ -1,3 +1,4 @@
+using Booking.Forms.Apartment;
 using Booking.Forms.Floor;
 using Domain.Entities;
 using Infrastructure.Data;
@@ -133,6 +134,19 @@ public partial class HotelMainForm : Form
             {
                 LoadFloors(hotel.Id);
             }
+        }
+    }
+    
+    private void lvFloors_MouseDoubleClick(object sender, MouseEventArgs e)
+    {
+        // Get the item that was double-clicked
+        ListViewItem item = lvFloors.SelectedItems.Count > 0 ? lvFloors.SelectedItems[0] : null;
+        if (item != null)
+        {
+            ApartmentListForm dlg = new ();
+            dlg.FloorId = (int)item.Tag;
+            dlg.ShowDialog();
+
         }
     }
 }

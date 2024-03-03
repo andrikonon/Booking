@@ -17,5 +17,5 @@ public class ApartmentEntity
     public int FloorId { get; set; }
     public virtual FloorEntity Floor { get; set; }
     
-    public ICollection<ApartmentImage> ApartmentImages { get; set; }
+    public virtual ICollection<ApartmentImage> ApartmentImages { get; set; }
 }
