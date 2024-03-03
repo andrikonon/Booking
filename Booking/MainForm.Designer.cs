@@ -34,7 +34,7 @@ partial class MainForm
         
         SuspendLayout();
 
-        btnCreate.Text = "Додати";
+        btnCreate.Text = "Готелі...";
         btnCreate.Location = new Point(10, 10);
         btnCreate.Size = new Size(120, 38);
         btnCreate.Name = "btnCreate";

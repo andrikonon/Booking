@@ -20,6 +20,12 @@
       <Compile Update="Forms\Hotel\HotelMainForm.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="Forms\Hotel\HotelUpdateForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Forms\Floor\FloorCreateForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

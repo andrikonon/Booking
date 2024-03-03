@@ -15,4 +15,5 @@ public class HotelEntity
     [Required, StringLength(500)]
     public string Address { get; set; }
     
+    public virtual ICollection<FloorEntity> Floors { get; set; }
 }
