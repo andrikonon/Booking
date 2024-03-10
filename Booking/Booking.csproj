@@ -33,6 +33,9 @@
       <Compile Update="Forms\Apartment\ApartmentCreateForm.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="Forms\Category\CategoryListForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

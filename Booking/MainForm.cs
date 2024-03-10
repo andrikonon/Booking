@@ -1,3 +1,4 @@
+using Booking.Forms.Category;
 using Booking.Forms.Hotel;
 using Domain.Entities;
 using Helpers;
@@ -10,6 +11,7 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+        
     }
 
     private void btnCreate_Click(object sender, EventArgs e)
@@ -80,5 +82,11 @@ public partial class MainForm : Form
             applicationDbContext.SaveChanges();
             #endregion
         }
+    }
+
+    private void mHead_Operations_CategoryTree_Click(object sender, EventArgs e)
+    {
+        CategoryListForm dlg = new();
+        dlg.ShowDialog();
     }
 }

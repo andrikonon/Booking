@@ -1,3 +1,4 @@
+using Helpers;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +19,7 @@ static class Program
         {
             applicationDbContext.Database.Migrate();
         }
+        // ImageWorker.ImageSaveUrl("https://montevista.greatheartsamerica.org/wp-content/uploads/sites/2/2016/11/default-placeholder.png", "default", "default.webp");
         Application.Run(new MainForm());
     }
 }
