@@ -30,25 +30,63 @@ partial class MainForm
     private void InitializeComponent()
     {
         btnCreate = new Button();
+        mHead = new MenuStrip();
+        mHead_File = new ToolStripMenuItem();
+        mHead_File_Exit = new ToolStripMenuItem();
+        mHead_Options = new ToolStripMenuItem();
+        mHead_Options_FillDb = new ToolStripMenuItem();
         
-        
+        mHead.SuspendLayout();
         SuspendLayout();
 
         btnCreate.Text = "Готелі...";
-        btnCreate.Location = new Point(10, 10);
+        btnCreate.Location = new Point(10, 53);
         btnCreate.Size = new Size(120, 38);
         btnCreate.Name = "btnCreate";
         btnCreate.Click += btnCreate_Click;
+
+
+        mHead.Name = "mHead";
+        mHead.Items.AddRange(new ToolStripItem[] { mHead_File, mHead_Options });
+        
+        
+        mHead_File.DropDownItems.AddRange(new[] {mHead_File_Exit});
+        mHead_File.Name = "mHead_File";
+        mHead_File.Text = "Файл";
+
+        mHead_File_Exit.Name = "mHead_File_Exit";
+        mHead_File_Exit.Text = "Вихід";
+        mHead_File_Exit.ShortcutKeys = Keys.Control | Keys.Q;
+
+
+        mHead_Options.DropDownItems.AddRange(new[] { mHead_Options_FillDb });
+        mHead_Options.Name = "mHead_Options";
+        mHead_Options.Text = "Налаштування";
+
+
+        mHead_Options_FillDb.Name = "mHead_Options_FillDb";
+        mHead_Options_FillDb.Text = "Заповнити БД";
+        mHead_Options_FillDb.Click += mHead_Options_FillDb_Click;
         
         components = new System.ComponentModel.Container();
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(800, 450);
         Controls.Add(btnCreate);
+        Controls.Add(mHead);
+        MainMenuStrip = mHead;
+        Margin = new Padding(4);
         Text = "MainForm";
+        
+        mHead.ResumeLayout(true);
         ResumeLayout(true);
     }
 
     #endregion
 
     private Button btnCreate;
+    private MenuStrip mHead;
+    private ToolStripMenuItem mHead_File;
+    private ToolStripMenuItem mHead_File_Exit;
+    private ToolStripMenuItem mHead_Options;
+    private ToolStripMenuItem mHead_Options_FillDb;
 }
