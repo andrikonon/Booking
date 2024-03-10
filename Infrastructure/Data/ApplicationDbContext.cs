@@ -9,6 +9,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<FloorEntity> Floors { get; set; }
     public DbSet<ApartmentEntity> Apartments { get; set; }
     public DbSet<ApartmentImage> ApartmentImages { get; set; }
+    public DbSet<CategoryEntity> Categories { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
